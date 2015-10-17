@@ -1,0 +1,45 @@
+[L3D Scene File]
+
+Camera: {
+	Right: 0.818488 0.000000 0.574531
+	Up: -0.338787 0.807667 0.482642
+	Forward: -0.464027 -0.589675 0.661059
+	Eye: 86.429176 35.381557 -3.259517
+};
+
+SceneObject: {
+	Name: "Ground"
+	Mesh: "cube.obj"
+	Scale: 100.000000 0.050000 100.000000
+	Rotation: 0.000000 0.000000 0.000000
+	Translation: 0.000000 0.000000 0.000000
+	Material: { 
+		Color: 255 255 255
+		Texture: ""
+		TexFilter: MEDIUM
+	};
+};
+SceneObject: {
+	Name: "RedCube"
+	Mesh: "cube.obj"
+	Scale: 5.000000 5.000000 5.000000
+	Rotation: 0.000000 0.000000 0.000000
+	Translation: 50.000000 0.500000 25.000000
+	Material: { 
+		Color: 200 50 50
+		Texture: ""
+		TexFilter: MEDIUM
+	};
+};
+SceneObject: {
+	Name: "BlueCube"
+	Mesh: "cube.obj"
+	Scale: 7.000000 7.000000 7.000000
+	Rotation: 0.000000 0.000000 0.000000
+	Translation: 60.000000 0.500000 45.000000
+	Material: { 
+		Color: 50 100 150
+		Texture: ""
+		TexFilter: MEDIUM
+	};
+};

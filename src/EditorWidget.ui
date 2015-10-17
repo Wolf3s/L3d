@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditorWidget</class>
+ <widget class="QWidget" name="EditorWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>950</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Lampert's 3D Scene Editor</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QGroupBox" name="inspectorArea">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Inspector</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::FieldsStayAtSizeHint</enum>
+      </property>
+      <item row="5" column="0" colspan="2">
+       <layout class="QGridLayout" name="miscObjAttribsArea">
+        <item row="0" column="2">
+         <widget class="QLineEdit" name="objectName"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="objectNameLbl">
+          <property name="text">
+           <string>Object Name:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLineEdit" name="meshName">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="meshLbl">
+          <property name="text">
+           <string>Mesh:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="browseMeshBtn">
+          <property name="text">
+           <string>Browse</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="textureLbl">
+          <property name="text">
+           <string>Texture:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLineEdit" name="textureName">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="browseTextureBtn">
+          <property name="text">
+           <string>Browse</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QComboBox" name="textureFilter"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="textureFilterLbl">
+          <property name="text">
+           <string>Texture Quality:</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="14" column="0" colspan="2">
+       <widget class="QLabel" name="colorLbl">
+        <property name="text">
+         <string>Color:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="0" colspan="2">
+       <layout class="QGridLayout" name="colorEditor">
+        <item row="2" column="2">
+         <widget class="QSpinBox" name="colorSelR">
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QSpinBox" name="colorSelG">
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="5">
+         <widget class="QLabel" name="colorLblB">
+          <property name="text">
+           <string>B:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="6">
+         <widget class="QSpinBox" name="colorSelB">
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="colorLblR">
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>R:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QLabel" name="colorLblG">
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>G:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="17" column="0" colspan="2">
+       <widget class="QLabel" name="scaleLbl">
+        <property name="text">
+         <string>Scale:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="0" colspan="2">
+       <layout class="QGridLayout" name="scaleEditor">
+        <item row="2" column="0" rowspan="2">
+         <widget class="QLabel" name="scaleLblX">
+          <property name="text">
+           <string>X:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="5" rowspan="2">
+         <widget class="QLabel" name="scaleLblZ">
+          <property name="text">
+           <string>Z:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2" rowspan="2">
+         <widget class="QLabel" name="scaleLblY">
+          <property name="text">
+           <string>Y:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" rowspan="2">
+         <widget class="QDoubleSpinBox" name="scaleSelX">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>2</number>
+          </property>
+          <property name="minimum">
+           <double>0.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>0.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3" rowspan="2">
+         <widget class="QDoubleSpinBox" name="scaleSelY">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>2</number>
+          </property>
+          <property name="minimum">
+           <double>0.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="6" rowspan="2">
+         <widget class="QDoubleSpinBox" name="scaleSelZ">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>2</number>
+          </property>
+          <property name="minimum">
+           <double>0.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="19" column="0" colspan="2">
+       <widget class="QLabel" name="rotationLbl">
+        <property name="text">
+         <string>Rotation:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="0" colspan="2">
+       <layout class="QGridLayout" name="rotationEditor">
+        <item row="0" column="0" rowspan="2">
+         <widget class="QLabel" name="rotLblX">
+          <property name="text">
+           <string>X:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" rowspan="2">
+         <widget class="QLabel" name="rotLblY">
+          <property name="text">
+           <string>Y:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4" rowspan="2">
+         <widget class="QLabel" name="rotLblZ">
+          <property name="text">
+           <string>Z:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" rowspan="2">
+         <widget class="QDoubleSpinBox" name="rotSelX">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="minimum">
+           <double>-360.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>360.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3" rowspan="2">
+         <widget class="QDoubleSpinBox" name="rotSelY">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="minimum">
+           <double>-360.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>360.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5" rowspan="2">
+         <widget class="QDoubleSpinBox" name="rotSelZ">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="minimum">
+           <double>-360.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>360.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="23" column="0" colspan="2">
+       <widget class="QLabel" name="positionLbl">
+        <property name="text">
+         <string>World Position:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="24" column="0" colspan="2">
+       <layout class="QGridLayout" name="positionEditor">
+        <item row="0" column="0">
+         <widget class="QLabel" name="posLblX">
+          <property name="text">
+           <string>X:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="posLblY">
+          <property name="text">
+           <string>Y:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="posLblZ">
+          <property name="text">
+           <string>Z:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="posSelX">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="posSelY">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="posSelZ">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="25" column="0" colspan="2">
+       <widget class="Line" name="line0">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="29" column="0">
+       <layout class="QGridLayout" name="renderModeArea">
+        <item row="0" column="1">
+         <widget class="QComboBox" name="rendererOpts"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="renderModeLbl">
+          <property name="text">
+           <string>Render Mode:</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="29" column="1">
+       <layout class="QGridLayout" name="shininessArea">
+        <item row="0" column="0">
+         <widget class="QLabel" name="shininessLbl">
+          <property name="text">
+           <string>Shininess:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="shininessSel">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="30" column="0" colspan="2">
+       <widget class="QLabel" name="lightPosLbl">
+        <property name="text">
+         <string>Light Position:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="31" column="0" colspan="2">
+       <layout class="QGridLayout" name="lightPosEditor">
+        <item row="0" column="0">
+         <widget class="QLabel" name="LposXLbl">
+          <property name="text">
+           <string>X:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="LposSelX">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>0.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="LposYLbl">
+          <property name="text">
+           <string>Y:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="LposSelY">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="LposZLbl">
+          <property name="text">
+           <string>Z:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="LposSelZ">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="minimum">
+           <double>-10000.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>10000.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="32" column="0" colspan="2">
+       <widget class="QLabel" name="ambientLightLbl">
+        <property name="text">
+         <string>Ambient Light:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="33" column="0" colspan="2">
+       <layout class="QGridLayout" name="ambLightEditor">
+        <item row="0" column="0">
+         <widget class="QLabel" name="ambRLbl">
+          <property name="text">
+           <string>R:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="ambRSel">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="ambGLbl">
+          <property name="text">
+           <string>G:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QSpinBox" name="ambGSel">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="ambBLbl">
+          <property name="text">
+           <string>B:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QSpinBox" name="ambBSel">
+          <property name="wrapping">
+           <bool>true</bool>
+          </property>
+          <property name="maximum">
+           <number>255</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="34" column="0" colspan="2">
+       <widget class="Line" name="line1">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="35" column="0" colspan="2">
+       <widget class="QLabel" name="editorLbl">
+        <property name="text">
+         <string>Editor</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="36" column="0" colspan="2">
+       <layout class="QGridLayout" name="btnArea">
+        <item row="3" column="1">
+         <widget class="QPushButton" name="loadSceneBtn">
+          <property name="text">
+           <string>Load Scene</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="saveSceneBtn">
+          <property name="text">
+           <string>Save Scene</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="newObjBtn">
+          <property name="text">
+           <string>New Object</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="removeObjBtn">
+          <property name="text">
+           <string>Remove Object</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QLabel" name="objectLbl">
+        <property name="text">
+         <string>Object</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="27" column="0" colspan="2">
+       <widget class="QLabel" name="rendererLbl">
+        <property name="text">
+         <string>Renderer</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
