@@ -41,7 +41,7 @@ for example. Just copy the static library to the appropriate folder and you're d
 
 ----
 
-![l3d scene editor](https://bytebucket.org/glampert/l3d/raw/bc41e25a1dfc969cc92f3a0f22333aaf691132dd/bin/screens/cover.jpg "l3d scene editor")
+![l3d scene editor](https://bytebucket.org/glampert/l3d/raw/a475488f6d8f12b6cc06f810bf9149bd3b488df7/bin/screens/cover.jpg "l3d scene editor")
 
 You can find other screenshots like the above in the `bin/screens/` directory.
 
